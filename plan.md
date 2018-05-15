@@ -5,3 +5,4 @@
 1. create submit button to get selection
 1. store amount of times each pic is shown to user
 1. track amount of selection for each picture
+1. possibly create object with imagesArray and add getRandomImage as a method
