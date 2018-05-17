@@ -17,7 +17,6 @@ class ImageViewer {
         for(let i = 0; i < this.imageArray.length; i++) {
             this.img = dom.getElementById('image-' + (i + 1));
             this.img.src = this.imageArray[i].imageSource;
-            
         }
         
         this.header = dom.querySelector('h2');

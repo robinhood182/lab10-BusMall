@@ -1,5 +1,5 @@
 /* globals ImageViewer composeTrio */
-/* exported App */
+/* exported App */              
 const appTemplate = document.getElementById('app-template');
 
 class App {
@@ -12,8 +12,11 @@ class App {
         const dom = appTemplate.content;
 
         const imageViewerSection = dom.getElementById('image-viewer');
-        const imageViewerComponent = new ImageViewer(composeTrio());
-        console.log('imageViewerComponent is:', imageViewerComponent);
+        const imageViewerComponent = new ImageViewer(composeTrio(), (userChoice) => {
+            userChoice.totalClicks++;
+            console.log('total clicks', this.totalClicks);
+            console.log('imageViewerComponent is:', imageViewerComponent);
+        });
         const imageDom = imageViewerComponent.render();
 
         imageViewerSection.appendChild(imageDom);
@@ -22,3 +25,17 @@ class App {
 
     }
 }
+//     render() {
+//         const dom = appTemplate.content;
+
+//         const imageViewerSection = dom.getElementById('image-viewer');
+//         const imageViewerComponent = new ImageViewer(composeTrio());
+//         console.log('imageViewerComponent is:', imageViewerComponent);
+//         const imageDom = imageViewerComponent.render();
+
+//         imageViewerSection.appendChild(imageDom);
+
+//         return dom;
+
+//     }
+// }
