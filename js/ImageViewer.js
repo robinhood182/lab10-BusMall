@@ -4,51 +4,39 @@
 const displayImagesTemplate = document.getElementById('image-viewer-template').content;
 
 class ImageViewer {
-    constructor(imageArray, onSelect) {
+    constructor(imageArray, onSelect, totalClicks) {
         this.imageArray = imageArray;
-        this.onChoice = onSelect;
+        this.onSelect = onSelect;
+        this.totalClicks = totalClicks;
     }
     
     update(imageArray) {
         this.imageArray = imageArray;
+        for(let i = 0; i < this.imageArray.length; i++) {  
+            const img = this.container.querySelector('#image-' + (i + 1));
+            img.src = this.imageArray[i].imageSource;
+            this.imageArray[i].viewCount++;
+        }
     }
 
     render() {
-        const dom = displayImagesTemplate;
+        
+        const dom = displayImagesTemplate.cloneNode(true);
+        this.container = dom.querySelector('div');
         for(let i = 0; i < this.imageArray.length; i++) {
-            const img = dom.getElementById('image-' + (i + 1));
-            img.src = this.imageArray[i].imageSource;
+            
+            const img = this.container.querySelector('#image-' + (i + 1));
             img.addEventListener('click', () => {
-                this.onChoice(this.imageArray[i]);
+                this.onSelect(this.imageArray[i]);
             });
         }
         
-        this.header = dom.querySelector('h2');
-        
-        
         this.update(this.imageArray);
-       
 
+        
+        this.header = dom.querySelector('h2');
+
+    
         return dom;
     }
 }
-
-// update(imageArray) {
-//     this.imageArray = imageArray;
-//     this.img0.src = imageArray[0].imageSource;
-//     this.img1.src = imageArray[1].imageSource;
-//     this.img2.src = imageArray[2].imageSource;
-// }
-
-// render() {
-//     const dom = displayImagesTemplate;
-
-//     this.header = dom.querySelector('h2');
-//     this.img0 = dom.getElementById('image-1');
-//     this.img1 = dom.getElementById('image-2');
-//     this.img2 = dom.getElementById('image-3');
-   
-//     this.update(this.imageArray);
-
-//     return dom;
-// }

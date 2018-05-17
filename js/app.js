@@ -1,23 +1,28 @@
 /* globals ImageViewer composeTrio */
-/* exported App */              
-const appTemplate = document.getElementById('app-template');
+/* exported App */ 
 
+//grabs #app-template and creates a copy       
+const appTemplate = document.getElementById('app-template').cloneNode(true);
+//class constructor that stores totalClicks and contains the render() method
 class App {
-    constructor(products) {
-        this.products = products;
+    constructor() {
         this.totalClicks = 0;
     }
-
+    //creates and instance of the ImageViewer class
     render() {
         const dom = appTemplate.content;
 
         const imageViewerSection = dom.getElementById('image-viewer');
-        const imageViewerComponent = new ImageViewer(composeTrio(), (onChoice) => {
-            onChoice.voteCount++;
-            console.log(onChoice);
-            //console.log('total clicks', this.totalClicks);
-            //console.log('imageViewerComponent is:', imageViewerComponent);
+        const imageViewerComponent = new ImageViewer(composeTrio(), (imageClicked) => {
+            if(this.totalClicks < 3) {
+                imageClicked.voteCount++;
+                this.totalClicks++;
+                console.log('onSelect', imageClicked);
+                console.log('total clicks', this.totalClicks);
+                imageViewerComponent.update(composeTrio());
+            }
         });
+
         const imageDom = imageViewerComponent.render();
 
         imageViewerSection.appendChild(imageDom);
@@ -26,17 +31,3 @@ class App {
 
     }
 }
-//     render() {
-//         const dom = appTemplate.content;
-
-//         const imageViewerSection = dom.getElementById('image-viewer');
-//         const imageViewerComponent = new ImageViewer(composeTrio());
-//         console.log('imageViewerComponent is:', imageViewerComponent);
-//         const imageDom = imageViewerComponent.render();
-
-//         imageViewerSection.appendChild(imageDom);
-
-//         return dom;
-
-//     }
-// }
