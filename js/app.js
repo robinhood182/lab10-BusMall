@@ -12,10 +12,11 @@ class App {
         const dom = appTemplate.content;
 
         const imageViewerSection = dom.getElementById('image-viewer');
-        const imageViewerComponent = new ImageViewer(composeTrio(), (userChoice) => {
-            userChoice.totalClicks++;
-            console.log('total clicks', this.totalClicks);
-            console.log('imageViewerComponent is:', imageViewerComponent);
+        const imageViewerComponent = new ImageViewer(composeTrio(), (onChoice) => {
+            onChoice.voteCount++;
+            console.log(onChoice);
+            //console.log('total clicks', this.totalClicks);
+            //console.log('imageViewerComponent is:', imageViewerComponent);
         });
         const imageDom = imageViewerComponent.render();
 

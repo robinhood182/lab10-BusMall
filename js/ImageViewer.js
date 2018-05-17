@@ -4,8 +4,9 @@
 const displayImagesTemplate = document.getElementById('image-viewer-template').content;
 
 class ImageViewer {
-    constructor(imageArray) {
+    constructor(imageArray, onSelect) {
         this.imageArray = imageArray;
+        this.onChoice = onSelect;
     }
     
     update(imageArray) {
@@ -15,8 +16,11 @@ class ImageViewer {
     render() {
         const dom = displayImagesTemplate;
         for(let i = 0; i < this.imageArray.length; i++) {
-            this.img = dom.getElementById('image-' + (i + 1));
-            this.img.src = this.imageArray[i].imageSource;
+            const img = dom.getElementById('image-' + (i + 1));
+            img.src = this.imageArray[i].imageSource;
+            img.addEventListener('click', () => {
+                this.onChoice(this.imageArray[i]);
+            });
         }
         
         this.header = dom.querySelector('h2');
