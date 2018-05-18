@@ -13,7 +13,13 @@ class ProductReport {
         //grabs all td elements inside 'product-report-template' and passes the product name and voteCount as text
         const columns = dom.querySelectorAll('td');
         columns[0].textContent = this.product.name;
-        columns[1].textContent = this.product.voteCount;
+        columns[1].textContent = this.product.viewCount;
+        columns[2].textContent = this.product.voteCount;
+        if(this.product.viewCount >= 1) {
+            columns[3].textContent = Math.floor((this.product.voteCount / this.product.viewCount) * 100) + '%';
+        } else {
+            columns[3].textContent = 0 + '%';
+        }
         return dom;
     }
 }

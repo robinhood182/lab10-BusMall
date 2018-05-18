@@ -15,7 +15,7 @@ class App {
 
         const imageViewerSection = dom.getElementById('image-viewer');
         const imageViewerComponent = new ImageViewer(composeTrio(), (imageClicked) => {
-            if(this.totalClicks < 10) {
+            if(this.totalClicks < 25) {
                 imageClicked.voteCount++;
                 this.totalClicks++;
 
