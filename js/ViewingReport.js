@@ -2,7 +2,7 @@
 /* exported ViewingReport */
 'use strict';
 //gets template element named 'viewing-report-template'
-const viewingReportTemplate = document.getElementById('viewing-report-template');
+const viewingReportTemplate = document.getElementById('viewing-report-template').content;
 
 class ViewingReport {
     constructor(productsArray) {

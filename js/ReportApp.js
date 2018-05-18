@@ -1,11 +1,11 @@
 /* exported ReportApp */
-/* globals ViewingReport ViewingChart */
+/* globals ViewingReport ViewingChart clearProductsData */
 'use strict';
-//gets report-template template element
+//gets 'report-template' template element
 const reportTemplate = document.getElementById('report-template');
 
 class ReportApp {
-    constructor(productsArray) {
+    constructor() {
         this.productsArray = productsArray;
         this.totalClicks = 0;
     }

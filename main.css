@@ -10,3 +10,11 @@ img {
     margin-right: 100px;
     cursor: pointer;
 }
+
+table tr td{
+    border-collapse: collapse;
+    border: 1px solid green;
+    width: 100px;
+    text-align: center;
+    padding: 3px 0;
+}

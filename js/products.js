@@ -1,10 +1,10 @@
 /* exported products, clearProductsData */
 /* globals productsArray */  
 'use strict';
-const productsArrayData = window.localStorage.getItem('products');
+const productsArrayData = window.localStorage.getItem('productsArray');
 
 window.onbeforeunload = () => {
-    window.localStorage.setItem('products', JSON.stringify(products));
+    window.localStorage.setItem('productsArray', JSON.stringify(productsArray));
 };
 
 let products;
@@ -20,6 +20,8 @@ function initProductsArray() {
 }
 
 function clearProductsData() {
-    window.localStorage.clear(products);
+    window.localStorage.clear(productsArray);
     initProductsArray();
 }
+//console.log('productArray is:', productsArray);
+//console.log('productsArrayData', productsArrayData);
