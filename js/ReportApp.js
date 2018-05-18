@@ -1,5 +1,5 @@
 /* exported ReportApp */
-/* globals ViewingReport ViewingChart clearProductsData */
+/* globals ViewingReport ViewingChart clearProductsData productsArray */
 'use strict';
 //gets 'report-template' template element
 const reportTemplate = document.getElementById('report-template');
