@@ -11,7 +11,7 @@ class ViewingReport {
 
     render() {
         const dom = viewingReportTemplate;
-        console.log('productsArray is:', this.productsArray);
+        
         this.tableBody = dom.querySelector('tbody');
 
         for(let i = 0; i < this.productsArray.length; i++) {
