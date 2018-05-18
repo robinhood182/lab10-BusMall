@@ -7,6 +7,7 @@ const appTemplate = document.getElementById('app-template').cloneNode(true);
 class App {
     constructor() {
         this.totalClicks = 0;
+
     }
     //creates and instance of the ImageViewer class
     render() {
@@ -14,9 +15,10 @@ class App {
 
         const imageViewerSection = dom.getElementById('image-viewer');
         const imageViewerComponent = new ImageViewer(composeTrio(), (imageClicked) => {
-            if(this.totalClicks < 4) {
+            if(this.totalClicks < 10) {
                 imageClicked.voteCount++;
                 this.totalClicks++;
+
                 console.log('onSelect', imageClicked);
                 console.log('total clicks', this.totalClicks);
                 imageViewerComponent.update(composeTrio());

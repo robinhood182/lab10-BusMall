@@ -1,5 +1,7 @@
 'use strict';
-/*globals productsArray */
+/*globals productsArray initProductsArray*/
+/* exported composeTrio */
+initProductsArray();
 
 var image1;
 var image2;

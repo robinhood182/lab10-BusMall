@@ -32,10 +32,6 @@ class ImageViewer {
         }
         
         this.update(this.imageArray);
-
-        
-        this.header = dom.querySelector('h2');
-
     
         return dom;
     }
