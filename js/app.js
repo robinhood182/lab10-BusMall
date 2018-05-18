@@ -14,12 +14,14 @@ class App {
 
         const imageViewerSection = dom.getElementById('image-viewer');
         const imageViewerComponent = new ImageViewer(composeTrio(), (imageClicked) => {
-            if(this.totalClicks < 3) {
+            if(this.totalClicks < 10) {
                 imageClicked.voteCount++;
                 this.totalClicks++;
                 console.log('onSelect', imageClicked);
                 console.log('total clicks', this.totalClicks);
                 imageViewerComponent.update(composeTrio());
+            } else {
+                alert('All done, thank you for participating!');
             }
         });
 

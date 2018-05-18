@@ -1,3 +1,4 @@
+/* exported productsArray */
 class Product {
     constructor(name, imageSource) {
         this.name = name;
